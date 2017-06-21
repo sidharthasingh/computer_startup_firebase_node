@@ -1,3 +1,9 @@
+/*
+
+	abc.json contains admin keys.
+	It must be located in root/node_modules/here	
+
+*/
 console.log("Script start");
 var res;
 setTimeout(function(){
