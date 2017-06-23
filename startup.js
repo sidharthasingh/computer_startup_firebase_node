@@ -6,9 +6,6 @@
 */
 console.log("Script start");
 var res;
-setTimeout(function(){
-	process.exit();
-},5000);
 
 var util=require("util");
 var admin = require("firebase-admin");
@@ -35,12 +32,11 @@ try
 				date:date.toString(),
 				time:date.toTimeString()
 			};
-			if(res=db.ref("sid_acer_ubuntu/").update(newDat))
-			{
-				// firebase.database().goOffline();
-				// console.log(res);
-				// process.exit();
-			}
+			db.ref("sid_acer_ubuntu/").update(newDat).then(function(){
+				process.exit();
+			},function(){
+				process.exit();
+			});
 		}
 		catch(e)
 		{
